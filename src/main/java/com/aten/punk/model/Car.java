@@ -1,4 +1,4 @@
-package com.codenotfound.primefaces.model;
+package com.aten.punk.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

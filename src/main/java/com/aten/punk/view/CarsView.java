@@ -1,4 +1,4 @@
-package com.codenotfound.primefaces.view;
+package com.aten.punk.view;
 
 import java.io.Serializable;
 import java.util.List;
@@ -11,8 +11,8 @@ import javax.inject.Named;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.codenotfound.primefaces.model.Car;
-import com.codenotfound.primefaces.repository.CarRepository;
+import com.aten.punk.model.Car;
+import com.aten.punk.repository.CarRepository;
 
 @Named
 @ViewScoped

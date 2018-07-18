@@ -1,9 +1,9 @@
-package com.codenotfound.primefaces.repository;
+package com.aten.punk.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.codenotfound.primefaces.model.Car;
+import com.aten.punk.model.Car;
 
 @Repository
 public interface CarRepository extends JpaRepository<Car, Long> {

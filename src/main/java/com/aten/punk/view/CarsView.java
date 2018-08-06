@@ -11,7 +11,7 @@ import javax.inject.Named;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.aten.punk.model.Car;
+import com.aten.punk.entity.Car;
 import com.aten.punk.repository.CarRepository;
 
 @Named
@@ -28,7 +28,7 @@ public class CarsView implements Serializable {
 
 	@PostConstruct
 	public void init() {
-		log.info("##### ATENPUNK #####");
+		log.info("##### CarsView #####");
 		cars = carRepository.findAll();
 	}
 

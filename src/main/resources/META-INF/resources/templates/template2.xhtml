@@ -1,0 +1,428 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:pretty="http://ocpsoft.com/prettyfaces"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>MASTERNODEONE</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta
+		content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+		name="viewport" />
+	<meta http-equiv="cache-control" content="max-age=0" />
+	<meta http-equiv="cache-control" content="no-cache" />
+	<meta http-equiv="expires" content="0" />
+	<meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+	<meta http-equiv="pragma" content="no-cache" />
+
+	<link rel="stylesheet" href="../../css/tree.css" />
+	<link rel="stylesheet" href="../../css/mainMenu.css" />
+	<link rel="stylesheet" href="../../css/default.css" />
+	<link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="../../css/ionicons.min.css" />
+	<link rel="stylesheet" href="../../dist/css/AdminLTE.min.css" />
+	<link rel="stylesheet" href="../../dist/css/skins/_all-skins.min.css" />
+	<link rel="stylesheet" href="../../plugins/iCheck/flat/blue.css" />
+	<link rel="stylesheet"
+		href="../../plugins/jvectormap/jquery-jvectormap-1.2.2.css" />
+	<link rel="stylesheet"
+		href="../../plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" />
+	<link rel="stylesheet" href="../../css/nprogress.css" />
+	<link rel="stylesheet"
+		href="../../dist/menu/font-awesome-4.7.0/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="../../js/solar.js" />
+
+	<style type="text/css">
+div[id="growl_container"] {
+	top: 60px;
+	z-index: 1001;
+}
+
+div[id="growl_container"] {
+	position: absolute;
+	top: 60px;
+	z-index: 1001;
+}
+
+::-webkit-scrollbar {
+	width: 8px;
+}
+
+::-webkit-scrollbar-button {
+	width: 8px;
+	height: 5px;
+}
+
+::-webkit-scrollbar-track {
+	background: #eee;
+	border: thin solid lightgray;
+	box-shadow: 0px 0px 3px #3c8dbc inset;
+	border-radius: 10px;
+	width: 220px;
+}
+
+::-webkit-scrollbar-thumb {
+	background: #3c8dbc;
+	border: thin solid #3c8dbc;
+	border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: #3c8dbc;
+}
+</style>
+
+	<h:outputScript library="scripts" name="pfcrud.js" />
+	<h:outputStylesheet library="css" name="pfcrud.css" />
+</h:head>
+
+<h:body class="hold-transition skin-blue sidebar-mini">
+	<f:view>
+		<p:growl id="growl" life="3000" />
+		<div class="wrapper">
+
+			<header class="main-header"> <a
+				href="#{request.contextPath}/" class="logo"> <span
+				class="logo-mini"><b>ORG</b></span> <span class="logo-lg"><b><h:outputText
+							value="OVERRICHGROUP" /></b></span>
+			</a> <nav class="navbar navbar-static-top" role="navigation"> <!-- Sidebar toggle button-->
+			<a href="#" class="sidebar-toggle" data-toggle="offcanvas"
+				role="button"> <span class="sr-only">Toggle navigation</span>
+			</a>
+			<div class="navbar-custom-menu">
+				<ul class="nav navbar-nav">
+					<li class="dropdown user user-menu"><pretty:link
+							mappingId="logout" style="font-size: 16px;">
+							<h:outputText value="#{app_msgs['menu.logout.label']}" />
+						</pretty:link></li>
+
+				</ul>
+			</div>
+			</nav> </header>
+
+			<aside class="main-sidebar">
+			<form>
+				<section class="sidebar" id="sidebar">
+				<ul class="sidebar-menu" id="sidebar-menu">
+					<li class="header"><h:outputText style="font-size: 16px;"
+							value="เมนูหลัก" /></li>
+					<span class="sidebar-menu"> <!-- V.1 -->
+						<li class="treeview"><a
+							href="#{request.contextPath}/menu/sales/report"> <i
+								class="fa fa-user"></i> <span> <h:outputText
+										style="font-size: 16px;" value="จัดการผู้ลงทุน" />
+							</span>
+						</a></li>
+						<li class="treeview"><a
+							href="#{request.contextPath}/menu/report/network"> <i
+								class="fa fa-user"></i> <span> <h:outputText
+										style="font-size: 16px;" value="การแนะนำตรง" />
+							</span>
+						</a></li>
+						<li class="treeview"><a
+							href="#{request.contextPath}/menu/send/list"> <i
+								class="fa fa-save"></i> <span> <h:outputText
+										style="font-size: 16px;" value="บันทึกรายการสั่งซื้อ" />
+							</span>
+						</a></li>
+						<li class="treeview"><a
+							href="#{request.contextPath}/menu/confirm/list"> <i
+								class="fa fa-save"></i> <span> <h:outputText
+										style="font-size: 16px;" value="ยืนยันยอดขายจากตัวแทน" />
+							</span>
+						</a></li>
+
+						<li class="treeview"><a href=""> <i class="fa fa-money"></i>
+								<span> <h:outputText style="font-size: 16px;"
+										value="การจ่ายเงินรายสัปดาห์" />
+							</span> <i class="fa fa-angle-left pull-right"></i>
+						</a>
+							<ul class="treeview-menu">
+								<li><a href="#{request.contextPath}/menu/payment/weekly"
+									class="ui-commandlink ui-widget"> <i class="fa fa-circle-o"></i>
+										<h:outputText style="font-size: 16px;" value="รอจ่ายล่าสุด" />
+								</a></li>
+								<li><a href="#{request.contextPath}/menu/payment/weeklyAll"
+									class="ui-commandlink ui-widget"> <i class="fa fa-circle-o"></i>
+										<h:outputText style="font-size: 16px;" value="รอจ่ายทั้งหมด" />
+								</a></li>
+								<li><a href="#{request.contextPath}/menu/payment/paid"
+									class="ui-commandlink ui-widget"> <i class="fa fa-circle-o"></i>
+										<h:outputText style="font-size: 16px;" value="จ่ายแล้ว" />
+								</a></li>
+							</ul></li>
+
+						<li class="treeview" id="mainTreeStock"><a href=""> <i
+								class="fa fa-cubes"></i> <span> <h:outputText
+										style="font-size: 16px;" value="คลังสินค้า" />
+							</span> <i class="fa fa-angle-left pull-right"></i>
+						</a>
+							<ul class="treeview-menu">
+
+								<li><a href="#{request.contextPath}/menu/stock/list"
+									class="ui-commandlink ui-widget"> <i class="fa fa-circle-o"></i>
+										<h:outputText style="font-size: 16px;" value="รายการสินค้า" />
+								</a></li>
+								<li><a href="#{request.contextPath}/menu/stock/add"
+									class="ui-commandlink ui-widget"> <i class="fa fa-circle-o"></i>
+										<h:outputText style="font-size: 16px;"
+											value="เพิ่มสินค้าเข้าคลัง" />
+								</a></li>
+							</ul></li>
+
+						<li class="treeview" id="mainTreeStock"><a href=""> <i
+								class="fa fa-cubes"></i> <span> <h:outputText
+										style="font-size: 16px;" value="โปรโมชั่น" />
+							</span> <i class="fa fa-angle-left pull-right"></i>
+						</a>
+							<ul class="treeview-menu">
+								<li><a href="#{request.contextPath}/menu/promotion/list"
+									class="ui-commandlink ui-widget"> <i class="fa fa-circle-o"></i>
+										<h:outputText style="font-size: 16px;" value="กำหนดส่วนแถม" />
+								</a></li>
+								<li><a href="#{request.contextPath}/menu/discount/list"
+									class="ui-commandlink ui-widget"> <i class="fa fa-circle-o"></i>
+										<h:outputText style="font-size: 16px;" value="กำหนดส่วนลด" />
+								</a></li>
+							</ul></li>
+
+						<li class="treeview" id="mainTreeReport"><a href=""> <i
+								class="fa fa-bar-chart"></i> <span> <h:outputText
+										style="font-size: 16px;" value="รายงาน" />
+							</span> <i class="fa fa-angle-left pull-right"></i>
+						</a>
+							<ul class="treeview-menu">
+								<li><a href="#{request.contextPath}/menu/report/trxSales"
+									class="ui-commandlink ui-widget"> <i class="fa fa-circle-o"></i>
+										<h:outputText style="font-size: 16px;" value="รายการขายสินค้า" />
+								</a></li>
+								<li><a
+									href="#{request.contextPath}/menu/report/profitShare"
+									class="ui-commandlink ui-widget"> <i class="fa fa-circle-o"></i>
+										<h:outputText style="font-size: 16px;"
+											value="รายได้ผู้ลงทุน (รายสัปดาห์)" />
+								</a></li>
+								<li><a
+									href="#{request.contextPath}/menu/report/profitAllSales"
+									class="ui-commandlink ui-widget"> <i class="fa fa-circle-o"></i>
+										<h:outputText style="font-size: 16px;"
+											value="รายได้ผู้ลงทุน (รายเดือน)" />
+								</a></li>
+								<li><a href="#{request.contextPath}/menu/report/bank"
+									class="ui-commandlink ui-widget"> <i class="fa fa-circle-o"></i>
+										<h:outputText style="font-size: 16px;"
+											value="ส่งเงินธนาคาร (รายสัปดาห์)" />
+								</a></li>
+								<li><a
+									href="#{request.contextPath}/menu/report/bankMonthly"
+									class="ui-commandlink ui-widget"> <i class="fa fa-circle-o"></i>
+										<h:outputText style="font-size: 16px;"
+											value="ส่งเงินธนาคาร (รายเดือน)" />
+								</a></li>
+								<li><a href="#{request.contextPath}/menu/report/trxProduct"
+									class="ui-commandlink ui-widget"> <i class="fa fa-circle-o"></i>
+										<h:outputText style="font-size: 16px;"
+											value="รายงานการสั่งซื้อสินค้า" />
+								</a></li>
+							</ul></li>
+
+						<li class="treeview"><a href=""> <i class="fa fa-money"></i>
+								<span> <h:outputText style="font-size: 16px;"
+										value="คำนวนรายได้ผู้ลงทุน" />
+							</span> <i class="fa fa-angle-left pull-right"></i>
+						</a>
+							<ul class="treeview-menu">
+								<li><a href="#{request.contextPath}/menu/calculate/weekly"
+									class="ui-commandlink ui-widget"> <i class="fa fa-circle-o"></i>
+										<h:outputText style="font-size: 16px;"
+											value="คำนวนรายได้รายวัน" />
+								</a></li>
+								<li><a href="#{request.contextPath}/menu/calculate/monthly"
+									class="ui-commandlink ui-widget"> <i class="fa fa-circle-o"></i>
+										<h:outputText style="font-size: 16px;"
+											value="คำนวนรายได้รายเดือน" />
+								</a></li>
+							</ul></li>
+						<li class="treeview"><a
+							href="#{request.contextPath}/menu/news/list"> <i
+								class="fa fa-newspaper-o"></i> <span> <h:outputText
+										style="font-size: 16px;" value="แจ้งข้อมูลข่าวสาร" />
+							</span>
+						</a></li> <!-- V.1 --> <!--
+						<li class="treeview"><a
+							href="#{request.contextPath}/register/list"> <i
+								class="fa fa-registered"></i> <span> <h:outputText
+										style="font-size: 16px;" value="ลงทะเบียนฝ่ายขาย" />
+							</span>
+						</a></li>
+						<li class="treeview"><a
+							href="#{request.contextPath}/sales/report"> <i
+								class="fa fa-user"></i> <span> <h:outputText
+										style="font-size: 16px;" value="รายการฝ่ายขาย" />
+							</span>
+						</a></li>
+						<li class="treeview"><a
+							href="#{request.contextPath}/confirm/list"> <i
+								class="fa fa-check"></i> <span> <h:outputText
+										style="font-size: 16px;" value="ยืนยันยอดขาย" />
+							</span>
+						</a></li>
+						<li class="treeview" id="mainTreeStock"><a href=""> <i
+								class="fa fa-money"></i> <span> <h:outputText
+										style="font-size: 16px;" value="การจ่ายเงิน" />
+							</span> <i class="fa fa-angle-left pull-right"></i>
+						</a>
+							<ul class="treeview-menu">
+								<li><a href="#{request.contextPath}/payment/weekly"
+									class="ui-commandlink ui-widget"> <i class="fa fa-circle-o"></i>
+										<h:outputText style="font-size: 16px;" value="รายสัปดาห์" />
+								</a></li>
+
+								<li><a href="#{request.contextPath}/payment/monthly"
+									class="ui-commandlink ui-widget"> <i class="fa fa-circle-o"></i>
+										<h:outputText style="font-size: 16px;" value="รายเดือน" />
+								</a></li>
+							</ul></li>
+						<li class="treeview" id="mainTreeStock"><a href=""> <i
+								class="fa fa-cubes"></i> <span> <h:outputText
+										style="font-size: 16px;" value="คลังสินค้า" />
+							</span> <i class="fa fa-angle-left pull-right"></i>
+						</a>
+							<ul class="treeview-menu">
+
+								<li><a href="#{request.contextPath}/stock/list"
+									class="ui-commandlink ui-widget"> <i class="fa fa-circle-o"></i>
+										<h:outputText style="font-size: 16px;" value="รายการสินค้า" />
+								</a></li>
+
+								<li><a href="#{request.contextPath}/stock/add"
+									class="ui-commandlink ui-widget"> <i class="fa fa-circle-o"></i>
+										<h:outputText style="font-size: 16px;"
+											value="เพิ่มสินค้าเข้าคลัง" />
+								</a></li>
+
+								<li><a href="#{request.contextPath}/stock/send"
+									class="ui-commandlink ui-widget"> <i class="fa fa-circle-o"></i>
+										<h:outputText style="font-size: 16px;" value="จัดส่งสินค้า" />
+								</a></li>
+							</ul></li>
+						<li class="treeview" id="mainTreeReport"><a href=""> <i
+								class="fa fa-bar-chart"></i> <span> <h:outputText
+										style="font-size: 16px;" value="รายงาน" />
+							</span> <i class="fa fa-angle-left pull-right"></i>
+						</a>
+							<ul class="treeview-menu">
+
+								<li><a href="#{request.contextPath}/report/sendSales"
+									class="ui-commandlink ui-widget"> <i class="fa fa-circle-o"></i>
+										<h:outputText style="font-size: 16px;" value="ส่งยอดขายสินค้า" />
+								</a></li>
+
+								<li><a href="#{request.contextPath}/report/profitShare"
+									class="ui-commandlink ui-widget"> <i class="fa fa-circle-o"></i>
+										<h:outputText style="font-size: 16px;" value="ค่าขยายตลาด" />
+								</a></li>
+
+								<li><a href="#{request.contextPath}/report/dif"
+									class="ui-commandlink ui-widget"> <i class="fa fa-circle-o"></i>
+										<h:outputText style="font-size: 16px;"
+											value="ค่าบริหารส่วนต่าง" />
+								</a></li>
+
+								<li><a href="#{request.contextPath}/report/monthly"
+									class="ui-commandlink ui-widget"> <i class="fa fa-circle-o"></i>
+										<h:outputText style="font-size: 16px;"
+											value="ออลเซล(รายเดือน)" />
+								</a></li>
+
+								<li><a href="#{request.contextPath}/report/quarterSales"
+									class="ui-commandlink ui-widget"> <i class="fa fa-circle-o"></i>
+										<h:outputText style="font-size: 16px;"
+											value="สรุปยอดขายไตรมาส" />
+								</a></li>
+							</ul></li>
+							
+							-->
+					</span>
+				</ul>
+				</section>
+			</form>
+			</aside>
+		</div>
+
+
+		<!-- Content Wrapper. Contains page content -->
+		<div class="content-wrapper">
+			<!-- Main content -->
+			<section class="content"> <h:panelGroup id="myPanel"
+				style="hight:100%" layout="block">
+				<div id="content">
+					<ui:insert name="content">
+                    [Template content will be inserted here]
+                </ui:insert>
+				</div>
+			</h:panelGroup> </section>
+			<!-- /.content -->
+		</div>
+		<!-- /.content-wrapper -->
+
+		<p:dialog appendTo="@(body)" modal="true" resizable="false"
+			closable="false" header="กรุณารอสักครู่" widgetVar="Loading"
+			width="300">
+			<center> <p:graphicImage
+				value="/resources/images/ajaxloadingbar.gif" /></center>
+		</p:dialog>
+
+		<!-- ################################################################################ -->
+		<link rel="stylesheet" href="../../bootstrap/js/bootstrap.min.js" />
+		<link rel="stylesheet" href="../../dist/js/app.js" />
+		<link rel="stylesheet" href="../../dist/js/demo.js" />
+		<link rel="stylesheet" href="../../scripts/nprogress.js" />
+
+		<script type="text/javascript">
+			function start() {
+				var cssClass = $("body").attr("class");
+				NProgress.start(cssClass);
+			}
+
+			function finish() {
+				NProgress.done();
+			}
+		</script>
+
+
+
+		<!-- Page Loading Effect -->
+		<script>
+			var HN = [];
+					HN.factory = function(e) {
+						return function() {
+							HN.push([ e ].concat(Array.prototype.slice.call(
+									arguments, 0)));
+						};
+					},
+					HN.on = HN.factory("on"),
+					HN.once = HN.factory("once"),
+					HN.off = HN.factory("off"),
+					HN.emit = HN.factory("emit"),
+					HN.load = function() {
+						var e = "hn-button.js";
+						if (document.getElementById(e))
+							return;
+						var t = document.createElement("script");
+								t.id = e,
+								t.src = "//hn-button.herokuapp.com/hn-button.js";
+						var n = document.getElementsByTagName("script")[0];
+						n.parentNode.insertBefore(t, n);
+					}, HN.load();
+		</script>
+
+	</f:view>
+</h:body>
+
+</html>
